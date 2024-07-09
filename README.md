@@ -1,1 +1,1 @@
-# dotfiles
+# shell setup
