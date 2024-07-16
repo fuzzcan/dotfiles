@@ -1,12 +1,9 @@
-#!/bin/bash
-sudo apt install zsh -y;
-cp "/mnt/c/Users/Chris/Projects/shell/.zshrc" ~
-sudo echo "poop"
-sudo echo "Created sudo session for non-interactive homebrew install"
+#!/usr/bin/env bash
+sudo echo "Installing homebrew" 
 
 github_content_url="https://raw.githubusercontent.com/"
 homebrew_url="Homebrew/install/HEAD/"
-if [ "$1" = "-i" ] || [ $# -eq 0 ]
+if [ "$1" = "-i" ] || [ $# -eq 0 ] || [ -z "$1" ]
 then
     sudo apt update -y
     sudo apt upgrade -y
@@ -21,16 +18,12 @@ then
     NONINERACTIVE=1 uninstall="$github_content_url$homebrew_url/uninstall.sh";
     /bin/bash -c "$(curl -fsSL $uninstall)" </dev/null;
 else 
-  echo 'Invalid argument. Specify install (--install or -i) or uninstall (--uninstall or -u)'
+  echo 'Invalid argument. Specify install (-i) or uninstall (-u).'
 fi
 
 sudo apt install build-essential -y
 #/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install jandedobbeleer/oh-my-posh/oh-my-posh
 brew update && brew upgrade oh-my-posh
-oh-my-posh uate
-source ~/.zshrc
+oh-my-posh update
 
-echo "BOBOO"
-
-zsh;
